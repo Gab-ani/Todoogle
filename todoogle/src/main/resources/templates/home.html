@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org">
+ <head>
+   <title>Taco Cloud</title>
+ </head>
+ <body>
+	<img th:src="@{/images/MainPage1.png}"/>
+	<form action="#" th:action="@{/greeting}" th:object="${googleQuery}" method="post">
+		<input type="text" th:field="*{query}"/>
+	</form>
+    <br/>
+ </body>
+</html>
