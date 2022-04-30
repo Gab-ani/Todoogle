@@ -19,18 +19,19 @@ public class QueryController {
 	@Autowired
 	private QueryService queryService;
 	
-	@RequestMapping(value="/greeting", method=RequestMethod.GET)
-    public String greetingForm(Model model) {
+	@RequestMapping(value="/ask", method=RequestMethod.GET)
+    public String queryForm(Model model) {
         model.addAttribute("googleQuery", new GoogleQuery());
         return "queryPage";
     }
 
-    @RequestMapping(value="/greeting", method=RequestMethod.POST)
-    public String greetingSubmit(@ModelAttribute GoogleQuery googleQuery, Model model, @AuthenticationPrincipal User user) {
+    @RequestMapping(value="/ask", method=RequestMethod.POST)
+    public String querySubmit(@ModelAttribute GoogleQuery googleQuery, Model model, @AuthenticationPrincipal User user) {
         model.addAttribute("googleQuery", googleQuery);
         googleQuery.setUser(user);
         queryService.save(googleQuery);
-        return "result";
+        model.addAttribute("googleQuery", new GoogleQuery());
+        return "redirect:/ask";
     }
 
 }

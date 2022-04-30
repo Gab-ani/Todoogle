@@ -38,7 +38,7 @@
 <body>
 	<div class = "outer">
 		<img th:src="@{/images/MainPage1.png}"/>
-   		<form action="#" th:action="@{/greeting}" th:object="${googleQuery}" method="post">
+   		<form action="#" th:action="@{/ask}" th:object="${googleQuery}" method="post">
         <input type="date" size=120 th:field="*{date}">
         <input type="time" size=120 th:field="*{time}">
         <p><input type="search" size=120 th:field="*{query}" /></p>
