@@ -28,7 +28,7 @@ public class QueryResolver{
 	
 	private List<GoogleQuery> currentQueryBatch;
 	
-	private void loadNextQueryBatch() {
+	public void loadNextQueryBatch() {
 		
 		LocalDate today = LocalDate.now();
 		String day = today.format(DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.getDefault()));
@@ -40,7 +40,7 @@ public class QueryResolver{
 		
 	}
 	
-	private void sendCurrentQueryBatch() {
+	public void sendCurrentQueryBatch() {
 		if(currentQueryBatch != null) {
 			emailService.sendBatch(currentQueryBatch);
 		} else {
