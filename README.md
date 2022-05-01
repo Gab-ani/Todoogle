@@ -1,6 +1,7 @@
 # Todoogle
 
 A software designed to organise curiosity.
+
 Have you ever heard of must-to-read book but forget about it in an hour?
 
 Have you ever been curious to research a theme closer, but wasn't able to do it during a moment?
