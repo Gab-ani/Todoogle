@@ -10,7 +10,7 @@ Most people see "save post" as a solution, but no saved post can remind about it
 
 With todoogle you can set something interesting to remind you about itself. It's as easy as google something, but you also setting a date and time, for example, todays 21:30. Todoogle will save your queries and send you an email containing your questions. Even better, not only it will remind you about them, the text is hyperlinked to exact same query in google search.
 ![изображение](https://user-images.githubusercontent.com/25298003/166162928-6bf75932-5313-4d0d-8afd-db8b5fbc4e2d.png)
-![изображение](https://user-images.githubusercontent.com/25298003/166163183-c5700898-d5e2-4101-912b-42aeb6edc5d9.png)
+![изображение](https://user-images.githubusercontent.com/25298003/166163609-7ae22105-535e-4891-a946-53d1af2a2220.png)
 
 ____________________________________________________________________________________________________________________________________________________________
 
