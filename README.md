@@ -12,5 +12,6 @@ With todoogle you can set something interesting to remind you about itself. It's
 ![изображение](https://user-images.githubusercontent.com/25298003/166162928-6bf75932-5313-4d0d-8afd-db8b5fbc4e2d.png)
 ![изображение](https://user-images.githubusercontent.com/25298003/166163183-c5700898-d5e2-4101-912b-42aeb6edc5d9.png)
 
+____________________________________________________________________________________________________________________________________________________________
 
 ![Untitled Diagram drawio(3)](https://user-images.githubusercontent.com/25298003/166116059-e19fa06e-1f4a-4995-ac32-031e1f842a03.png)
