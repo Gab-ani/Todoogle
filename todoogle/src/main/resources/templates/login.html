@@ -8,9 +8,9 @@
  <head>
  </head>
  <body>
-   <img th:src="@{/images/MainPage1.png}"/>
    <div th:if="${error}"> Unable to login. Check your username and password. </div>
    <div class = "centered">
+   		<img th:src="@{/images/MainPage1.png}"/>
    		<p>New here? Click
      	<a th:href="@{/register}">here</a> to register.</p>
    		<!-- tag::thAction[] -->
