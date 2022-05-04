@@ -15,3 +15,15 @@ With todoogle you can set something interesting to remind you about itself. It's
 ____________________________________________________________________________________________________________________________________________________________
 
 ![Untitled Diagram drawio(3)](https://user-images.githubusercontent.com/25298003/166116059-e19fa06e-1f4a-4995-ac32-031e1f842a03.png)
+______________________________________________________________________________________________________
+# Future
+
+Immediate objectives:
+1) Email confirmation with tokens etc, because rn the service is kinda spam-machine in a wrong hands.
+2) Adding the "default sending time button" and update users to store their preferences. My view on the product is less of an organiser and more of "get a long email of cool things on sunday morning 12 am".
+3) Add a "letter to the future" functionality, because it's actually 90% done, extends functionality greatly and serves as a motivation to learn frontend.
+
+Joke gone too far objectives:
+1) Create actual frontend, lol.
+2) Supporting telegram as an alternative communication channel.
+3) Implement ability of creating custom "feed mailing", sort of "make yourself a newsletter/memescroll" where service provides scheduling and organising but all the content is still heavily defined by user.
