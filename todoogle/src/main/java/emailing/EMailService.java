@@ -1,19 +1,12 @@
-package gab.todoogle;
+package emailing;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.scheduling.TaskScheduler;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
+
+import application.GoogleQuery;
+import application.QueryBatchMapper;
 
 @Component
 public class EMailService {

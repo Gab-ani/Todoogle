@@ -1,4 +1,4 @@
-package gab.todoogle;
+package emailing;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;

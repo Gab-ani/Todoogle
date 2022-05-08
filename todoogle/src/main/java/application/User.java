@@ -1,8 +1,9 @@
-package gab.todoogle;
+package application;
 
 import java.util.Arrays;
 import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,8 +28,12 @@ public class User implements UserDetails{
 	private String password;
 	private String email;
 	
+	@Column(name = "enabled")
+	private boolean enabled;
+	
 	public User() {
-		
+		super();
+		enabled = false;
 	}
 	
 	public User(String username, String password, String email) {
@@ -41,18 +46,6 @@ public class User implements UserDetails{
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
 	}
-
-//	@Override
-//	public String getPassword() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public String getUsername() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 
 	@Override
 	public boolean isAccountNonExpired() {
@@ -71,7 +64,7 @@ public class User implements UserDetails{
 
 	@Override
 	public boolean isEnabled() {
-		return true;
+		return enabled;
 	}
 
 	public String getUsername() {

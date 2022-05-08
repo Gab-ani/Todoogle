@@ -1,4 +1,4 @@
-package gab.todoogle;
+package emailing;
 
 import java.util.ArrayList;
 import java.util.List;
