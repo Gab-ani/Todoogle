@@ -1,4 +1,4 @@
-package gab.todoogle;
+package application;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

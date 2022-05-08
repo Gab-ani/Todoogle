@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
+import emailing.EMailFormatter;
+
 public class EMailFormatterTest {
 
 	@Test

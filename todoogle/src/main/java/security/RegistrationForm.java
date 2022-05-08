@@ -1,11 +1,21 @@
-package gab.todoogle;
+package security;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import application.User;
+
 public class RegistrationForm {
+
 	private String username;
 	private String password;
 	private String email;
+	
+	public RegistrationForm() {
+		
+	}
 	
 	public RegistrationForm(String username, String password, String email) {
 		this.username = username;
@@ -40,4 +50,5 @@ public class RegistrationForm {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 }

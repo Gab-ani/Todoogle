@@ -1,4 +1,4 @@
-package gab.todoogle;
+package application;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -16,6 +16,8 @@ import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.stereotype.Component;
+
+import emailing.EMailService;
 
 @Component
 public class QueryResolver{

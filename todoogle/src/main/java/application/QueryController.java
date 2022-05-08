@@ -1,4 +1,4 @@
-package gab.todoogle;
+package application;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

@@ -6,6 +6,10 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
+import application.GoogleQuery;
+import application.QueryBatchMapper;
+import application.User;
+
 public class QueryBatchMapperTest {
 
 	@Test
