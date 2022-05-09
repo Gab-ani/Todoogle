@@ -23,8 +23,7 @@ public class RegistrationController {
 	private PasswordEncoder passwordEncoder;
 	
 	@GetMapping
-	public String registerForm(Model model) {
-		model.addAttribute("registerForm", new RegistrationForm());
+	public String registerForm() {
 		return "registration";
 	}
 	
@@ -34,9 +33,11 @@ public class RegistrationController {
 		try {
 			userDAO.saveFromForm(form, passwordEncoder);
 		} catch (IncorrectInputsException ie) {
+			System.out.println("инпут");
 			// TODO show message
 			ie.printStackTrace();
 		} catch (UserAlreadyExistException ae) {
+			System.out.println("база");
 			// TODO show message
 			ae.printStackTrace();
 		}
