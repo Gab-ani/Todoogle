@@ -19,7 +19,9 @@ ________________________________________________________________________________
 # Future
 
 Immediate objectives:
-1) Email confirmation with tokens etc, because rn the service is kinda spam-machine in a wrong hands.
+
+~~1) Email confirmation with tokens etc, because rn the service is kinda spam-machine in a wrong hands.~~
+
 2) Adding the "default sending time button" and update users to store their preferences. My view on the product is less of an organiser and more of "get a long email of cool things on sunday morning 12 am".
 3) Add a "letter to the future" functionality, because it's actually 90% done, extends functionality greatly and serves as a motivation to learn frontend.
 4) Try to implement parallel email sending, as I learned, it can't be simply done by slapping async on top of the sending method, but without an ability to *hypothetical* send thousands emails per minute, the service practically unscalable => useless.
