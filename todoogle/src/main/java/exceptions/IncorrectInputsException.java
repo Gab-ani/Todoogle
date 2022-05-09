@@ -1,6 +1,6 @@
-package application;
+package exceptions;
 
-public final class IncorrectInputsException extends RuntimeException {
+public final class IncorrectInputsException extends Exception {
 
     private static final long serialVersionUID = 5861110537316287163L;
 

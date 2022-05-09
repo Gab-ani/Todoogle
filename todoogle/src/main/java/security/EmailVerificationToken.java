@@ -22,7 +22,7 @@ public class EmailVerificationToken {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	private String value;
+	private String tokenValue;
 	
 	@OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
 	@JoinColumn(nullable = false, name = "user_id")
@@ -30,11 +30,41 @@ public class EmailVerificationToken {
 	
     private Date expiryDate;
     
-    private Date calculateExpiryDate(int expiryTimeInMinutes) {
+    public EmailVerificationToken() {
+    	
+    }
+    
+    public EmailVerificationToken(User user, String value) {
+    	this.user = user;
+    	this.tokenValue = value;
+    	expiryDate = calculateExpiryDate();
+    }
+    
+    private Date calculateExpiryDate() {
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Timestamp(cal.getTime().getTime()));
-        cal.add(Calendar.MINUTE, expiryTimeInMinutes);
+        cal.add(Calendar.MINUTE, EXPIRATION);
         return new Date(cal.getTime().getTime());
     }
+    
+	public String getToken() {
+		return tokenValue;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public Date getExpiryDate() {
+		return expiryDate;
+	}
+
+	public void setToken(String token) {
+		this.tokenValue = token;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
     
 }

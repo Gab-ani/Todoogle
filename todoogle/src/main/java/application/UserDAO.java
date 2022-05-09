@@ -9,8 +9,7 @@ public interface UserDAO extends JpaRepository<User, Long> {
 	 
 	 User findByEmail(String email);
 	 
-	 @Query(value = "SELECT * FROM users WHERE username = 'admin'",
-			 nativeQuery = true)
+	 @Query(value = "SELECT * FROM users WHERE username = 'admin'", nativeQuery = true)
 	 User getAdmin();
 }
 

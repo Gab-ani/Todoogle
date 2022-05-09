@@ -18,7 +18,7 @@ import application.QueryBatchMapper;
 import application.User;
 import emailing.EMailFormatter;
 import emailing.EMailService;
-import emailing.EmailSender;
+import emailing.EMailSender;
 
 public class EMailServiceTest {
 	
@@ -31,7 +31,7 @@ public class EMailServiceTest {
 		when(formatterMock.letterFromThemesMap(any())).thenReturn("formatted");
 		testedService.setFormatter(formatterMock);
 		
-		EmailSender senderMock = Mockito.mock(EmailSender.class);
+		EMailSender senderMock = Mockito.mock(EMailSender.class);
 		testedService.setEmailSender(senderMock);
 		
 		QueryBatchMapper mapper  = new QueryBatchMapper();
@@ -40,7 +40,7 @@ public class EMailServiceTest {
 		testedService.sendBatch(createTestBatch());
 		
 		verify(formatterMock, times(2)).letterFromThemesMap(any(ArrayList.class));
-		verify(senderMock, times(2)).send(anyString(), anyString());
+		verify(senderMock, times(2)).sendPackage(anyString(), anyString());
 		
 	}
 	

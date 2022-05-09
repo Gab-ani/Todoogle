@@ -7,20 +7,28 @@ import org.springframework.stereotype.Component;
 
 import application.GoogleQuery;
 import application.QueryBatchMapper;
+import application.User;
+import security.EmailVerificationToken;
 
 @Component
 public class EMailService {
 
 	private EMailFormatter formatter;
-    private EmailSender emailSender;
+    private EMailSender emailSender;
     private QueryBatchMapper emailGrouper;
 
 	public void sendBatch(List<GoogleQuery> queryBatch) {
 		var sendToList = emailGrouper.groupByReceiver(queryBatch);
 		sendToList.forEach((address, themes) -> {
 			//async.run(() -> send(address, formatter.letterFromThemesMap(themes)));
-			emailSender.send(address, formatter.letterFromThemesMap(themes));
+			emailSender.sendPackage(address, formatter.letterFromThemesMap(themes));
 		});
+	}
+
+	public void sendConfirmationEmail(User user, EmailVerificationToken token) {
+		
+		emailSender.sendVerificationEmail(user.getEmail(), formatter.confirmationLetter(token));
+		
 	}
 	
     @Autowired
@@ -29,7 +37,7 @@ public class EMailService {
 	}
     
     @Autowired
-	public void setEmailSender(EmailSender emailSender) {
+	public void setEmailSender(EMailSender emailSender) {
 		this.emailSender = emailSender;
 	}
 

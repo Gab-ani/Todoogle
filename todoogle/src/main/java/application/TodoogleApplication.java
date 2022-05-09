@@ -17,14 +17,14 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 import emailing.EMailFormatter;
 import emailing.EMailService;
-import emailing.EmailSender;
+import emailing.EMailSender;
 import security.RegistrationController;
 import security.SecurityConfig;
 
 @SpringBootApplication
 @EnableScheduling
 @EnableAsync
-@Import({SecurityConfig.class, EMailFormatter.class, EmailSender.class, EMailService.class, RegistrationController.class})
+@Import({SecurityConfig.class, EMailFormatter.class, EMailSender.class, EMailService.class, RegistrationController.class})
 public class TodoogleApplication {
 	
 	@Autowired

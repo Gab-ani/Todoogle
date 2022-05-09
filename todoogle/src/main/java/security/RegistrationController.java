@@ -7,37 +7,45 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import application.IncorrectInputsException;
-import application.UserAlreadyExistException;
 import application.UserService;
+import exceptions.IncorrectInputsException;
+import exceptions.UserAlreadyExistException;
 
 @Controller
 @RequestMapping("/register")
 public class RegistrationController {
 	
 	@Autowired
-	private UserService userDAO;
+	private UserService userService;
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
 	@GetMapping
 	public String registerForm() {
+		// TODO "after registration you'll need to confirm your email, check blahblahblah"
 		return "registration";
+	}
+	
+	@GetMapping("/confirm")
+	public String confirmRegistration(@RequestParam("token") String token) {
+		
+		
+		
+		return "confirmationSuccess";
 	}
 	
 	@PostMapping
 	public String processRegistration(RegistrationForm form) {
 		
 		try {
-			userDAO.saveFromForm(form, passwordEncoder);
+			userService.saveFromForm(form, passwordEncoder);
 		} catch (IncorrectInputsException ie) {
-			System.out.println("инпут");
 			// TODO show message
 			ie.printStackTrace();
 		} catch (UserAlreadyExistException ae) {
-			System.out.println("база");
 			// TODO show message
 			ae.printStackTrace();
 		}
