@@ -12,5 +12,3 @@ public interface UserDAO extends JpaRepository<User, Long> {
 	 @Query(value = "SELECT * FROM users WHERE username = 'admin'", nativeQuery = true)
 	 User getAdmin();
 }
-
-

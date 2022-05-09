@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import application.UserService;
 import exceptions.IncorrectInputsException;
 import exceptions.UserAlreadyExistException;
+import exceptions.WrongTokenException;
 
 @Controller
 @RequestMapping("/register")
@@ -29,11 +30,17 @@ public class RegistrationController {
 		return "registration";
 	}
 	
-	@GetMapping("/confirm")
+	@GetMapping("/confirm/*")
 	public String confirmRegistration(@RequestParam("token") String token) {
 		
-		
-		
+		try {
+			userService.confirmUser(token);
+		} catch (WrongTokenException e) {
+			//TODO redirect gtfo
+			e.printStackTrace();
+			return "confirmationFailure";
+		}
+		// TODO design ALSO redirect in 10 seconds or whatever
 		return "confirmationSuccess";
 	}
 	
