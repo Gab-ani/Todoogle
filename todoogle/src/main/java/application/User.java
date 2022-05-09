@@ -27,8 +27,6 @@ public class User implements UserDetails{
 	private String username;
 	private String password;
 	private String email;
-	
-	@Column(name = "enabled")
 	private boolean enabled;
 	
 	public User() {
@@ -77,6 +75,10 @@ public class User implements UserDetails{
 
 	public String getEmail() {
 		return email;
+	}
+	
+	public void enable() {
+		this.enabled = true;
 	}
 	
 }

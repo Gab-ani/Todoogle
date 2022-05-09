@@ -16,13 +16,13 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 
-import emailing.EmailSender;
+import emailing.EMailSender;
 
 public class EmailSenderTest {
 
 	@Test
 	void sendTest() {
-		var testedSender = new EmailSender();
+		var testedSender = new EMailSender();
 		
 		JavaMailSender senderMock = Mockito.mock(JavaMailSender.class);
 		
@@ -32,7 +32,7 @@ public class EmailSenderTest {
 		when(senderMock.createMimeMessage()).thenReturn(workingMessage);
 		testedSender.setEmailSender(senderMock);
 		
-		testedSender.send("to", "text");
+		testedSender.sendPackage("to", "text");
 		
 
 
