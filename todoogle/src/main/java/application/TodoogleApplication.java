@@ -5,9 +5,12 @@ import java.util.Properties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.scheduling.TaskScheduler;
@@ -23,8 +26,10 @@ import security.SecurityConfig;
 
 @SpringBootApplication
 @EnableScheduling
-@EnableAsync
-@Import({SecurityConfig.class, EMailFormatter.class, EMailSender.class, EMailService.class, RegistrationController.class})
+@EnableAsync     
+@EnableJpaRepositories
+@EntityScan({"security", "application"})
+@Import({SecurityConfig.class, EMailFormatter.class, EMailSender.class, EMailService.class, RegistrationController.class /*, VerificationTokenDAO.class */})// TODO organize to configs
 public class TodoogleApplication {
 	
 	@Autowired

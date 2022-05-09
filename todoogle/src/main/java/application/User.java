@@ -1,5 +1,6 @@
 package application;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -42,7 +43,14 @@ public class User implements UserDetails{
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+		
+		ArrayList<SimpleGrantedAuthority> roles = new ArrayList<>();
+		
+		if(enabled) {
+			roles.add(new SimpleGrantedAuthority("ROLE_USER"));			
+		}
+		
+		return roles;
 	}
 
 	@Override

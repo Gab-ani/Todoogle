@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -18,7 +19,6 @@ import exceptions.UserAlreadyExistException;
 import exceptions.WrongTokenException;
 import security.EmailVerificationToken;
 import security.RegistrationForm;
-import security.VerificationTokenDAO;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -26,6 +26,7 @@ public class UserService implements UserDetailsService {
 	@Autowired
 	UserDAO userDAO;
 	
+	@Lazy
 	@Autowired
 	EMailService emailService;
 	

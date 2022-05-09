@@ -1,8 +1,9 @@
-package security;
+package application;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import application.User;
+import security.EmailVerificationToken;
+
 
 public interface VerificationTokenDAO extends JpaRepository<EmailVerificationToken, Long> {
 	
