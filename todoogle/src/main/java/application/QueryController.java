@@ -26,9 +26,9 @@ public class QueryController {
     }
 
     @RequestMapping(value="/ask", method=RequestMethod.POST)
-    public String querySubmit(@ModelAttribute GoogleQuery googleQuery, Model model, @AuthenticationPrincipal User user) {
+    public String querySubmit(@ModelAttribute GoogleQuery googleQuery, Model model, @AuthenticationPrincipal User asker) {
         model.addAttribute("googleQuery", googleQuery);
-        googleQuery.setUser(user);
+        googleQuery.setUser(asker);
         queryService.save(googleQuery);
         model.addAttribute("googleQuery", new GoogleQuery());
         return "redirect:/ask";

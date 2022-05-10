@@ -31,6 +31,6 @@ public class EMailFormatter {
 	private String verifyLink(String token) {
 		// TODO? "unlocalhost" if publish :D
 		// TODO? make it a property variable 
-		return "https://localhost:8080/register/confirm/" + token;
+		return "https://localhost:8080/register/confirm/?token=" + token;
 	}
 }
