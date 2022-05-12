@@ -22,7 +22,7 @@ Immediate objectives:
 
 ~~1) Email confirmation with tokens etc, because rn the service is kinda spam-machine in a wrong hands.~~
 
-~~2) Becoming RESTful. I'm planning to stop uploading ~~master branch for a while and continue work in "becoming RESTful" branch.
+2) Becoming RESTful. I'm planning to stop uploading master branch for a while and continue work in "becoming RESTful" branch.
 3) Adding the "default sending time button" and update users to store their preferences. My view on the product is less of an organiser and more of "get a long email of cool things on sunday morning 12 am".
 4) Add a "letter to the future" functionality, because it's actually 90% done, extends functionality greatly and serves as a motivation to learn frontend.
 5) Try to implement parallel email sending, as I learned, it can't be simply done by slapping async on top of the sending method, but without an ability to *hypothetical* send thousands emails per minute, the service practically unscalable => useless.
