@@ -1,10 +1,12 @@
-package application;
+package queries;
 
 import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import application.QueryDAO;
 
 @Service
 public class QueryService {

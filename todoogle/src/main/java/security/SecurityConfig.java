@@ -31,17 +31,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-			.antMatchers("/ask")
-			.hasRole("USER")
-			.antMatchers("/", "/**").permitAll()
-			.and()
-			.formLogin()
-			.loginPage("/login")
-			.defaultSuccessUrl("/ask")
-			.and()
-			.logout()
-			.logoutSuccessUrl("/");
+		http.csrf().disable()
+		    .authorizeRequests()
+		    .antMatchers("/register/confirm/*").permitAll()
+		    .antMatchers("/ask").hasRole("USER")
+		    .anyRequest().authenticated()
+		    .and().httpBasic()
+		    .and().sessionManagement().disable();
+//		http.authorizeRequests()
+//			.antMatchers("/ask")
+//			.hasRole("USER")
+//			.antMatchers("/", "/**").permitAll()
+//			.and()
+//			.formLogin()
+//			.loginPage("/login")
+//			.defaultSuccessUrl("/ask")
+//			.and()
+//			.logout()
+//			.logoutSuccessUrl("/");
 	}
 
 	

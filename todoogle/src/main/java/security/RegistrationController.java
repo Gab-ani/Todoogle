@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import application.UserService;
 import exceptions.IncorrectInputsException;
 import exceptions.UserAlreadyExistException;
 import exceptions.WrongTokenException;
 
-@Controller
+@RestController
 @RequestMapping("/register")
 public class RegistrationController {
 	
@@ -24,11 +25,11 @@ public class RegistrationController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	@GetMapping
-	public String registerForm() {
-		// TODO "after registration you'll need to confirm your email, check blahblahblah"
-		return "registration";
-	}
+//	@GetMapping
+//	public String registerForm() {
+//		// TODO "after registration you'll need to confirm your email, check blahblahblah"
+//		return "registration";
+//	}
 	
 	@GetMapping("/confirm/*")
 	public String confirmRegistration(@RequestParam("token") String token) {

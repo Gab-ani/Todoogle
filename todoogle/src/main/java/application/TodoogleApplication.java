@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -20,6 +21,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 import emailing.EMailFormatter;
 import emailing.EMailService;
+import queries.GoogleQuery;
 import emailing.EMailSender;
 import security.RegistrationController;
 import security.SecurityConfig;
@@ -28,8 +30,9 @@ import security.SecurityConfig;
 @EnableScheduling
 @EnableAsync     
 @EnableJpaRepositories
-@EntityScan({"security", "application"})
-@Import({SecurityConfig.class, EMailFormatter.class, EMailSender.class, EMailService.class, RegistrationController.class /*, VerificationTokenDAO.class */})// TODO organize to configs
+@EntityScan({"security", "application", "queries"})
+@ComponentScan({"emailing", "queries", "exceptions"})
+@Import({SecurityConfig.class, EMailFormatter.class, EMailSender.class, EMailService.class, RegistrationController.class, UserService.class})// TODO organize to configs
 public class TodoogleApplication {
 	
 	@Autowired

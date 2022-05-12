@@ -1,10 +1,12 @@
-package application;
+package emailing;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
+
+import queries.GoogleQuery;
 
 @Component
 public class QueryBatchMapper {

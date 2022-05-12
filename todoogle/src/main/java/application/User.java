@@ -30,6 +30,9 @@ public class User implements UserDetails {
 	private String email;
 	private boolean enabled;
 	
+	private String defaultTime;
+	private String defaultDateAndTime;
+	
 	public User() {
 		super();
 		enabled = false;
@@ -85,6 +88,22 @@ public class User implements UserDetails {
 		return email;
 	}
 	
+	public String getDefaultTime() {
+		return defaultTime;
+	}
+
+	public String getDefaultDateAndTime() {
+		return defaultDateAndTime;
+	}
+
+	public void setDefaultTime(String defaultTime) {
+		this.defaultTime = defaultTime;
+	}
+
+	public void setDefaultDateAndTime(String defaultDateAndTime) {
+		this.defaultDateAndTime = defaultDateAndTime;
+	}
+
 	public void enable() {
 		this.enabled = true;
 	}

@@ -55,7 +55,7 @@ public class UserService implements UserDetailsService {
 		throw new WrongTokenException();
 	}
 	
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public User loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userDAO.findByUsername(username);
 		if (user != null) {
 		  return user;

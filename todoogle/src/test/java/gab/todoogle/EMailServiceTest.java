@@ -13,11 +13,11 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.mail.javamail.JavaMailSender;
 
-import application.GoogleQuery;
-import application.QueryBatchMapper;
 import application.User;
 import emailing.EMailFormatter;
 import emailing.EMailService;
+import emailing.QueryBatchMapper;
+import queries.GoogleQuery;
 import emailing.EMailSender;
 
 public class EMailServiceTest {

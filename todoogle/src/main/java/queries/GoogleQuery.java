@@ -1,4 +1,4 @@
-package application;
+package queries;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,6 +7,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Entity;
+
+import application.User;
 
 @javax.persistence.Entity
 @Table(name="future_queries")
