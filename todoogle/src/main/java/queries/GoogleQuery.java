@@ -28,6 +28,12 @@ public class GoogleQuery {
 		
 	}
 	
+	public GoogleQuery(String query, String date, String time) {
+		this.query = query;
+		this.date = date;
+		this.time = time;
+	}
+	
 	public String getDate() {
 		return date;
 	}

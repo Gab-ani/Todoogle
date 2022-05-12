@@ -32,12 +32,22 @@ public class AskController {
 	private UserService userService;
 	
 	@RequestMapping(value = "/ask/defaultDateAndTime", method = RequestMethod.GET)
-	public String getDefaultTime(@AuthenticationPrincipal User asker) {
-		return userService.loadUserByUsername(asker.getUsername()).getDefaultDateAndTime();
+	public DateAndTimeResource getDefaultTime(@AuthenticationPrincipal User asker) {
+		return new DateAndTimeResource(asker.getDefaultDate(), asker.getDefaultTime());
+	}
+	
+	@RequestMapping(value = "/ask/defaultDateAndTime", method = RequestMethod.POST)
+	public String setDefaultTime(@RequestBody DateAndTimeResource dateTime, @AuthenticationPrincipal User asker) {
+		
+		asker.setDefaultDateAndTime(dateTime);
+		userService.save(asker);
+		
+		return "changed";
 	}
 	
     @RequestMapping(value = "/ask", method = RequestMethod.POST)
-    public String querySubmit(@RequestBody GoogleQuery query, @AuthenticationPrincipal User asker) {
+    public String querySubmit(@RequestBody GoogleQueryResource queryForm, @AuthenticationPrincipal User asker) {
+    	var query = queryForm.toGoogleQuery();
     	query.setUser(asker);
         queryService.save(query);
         return "accepted for " + asker.getUsername();

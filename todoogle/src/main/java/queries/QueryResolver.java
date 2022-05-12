@@ -43,7 +43,7 @@ public class QueryResolver{
 	}
 	
 	public void sendCurrentQueryBatch() {
-		if(currentQueryBatch != null) {
+		if(currentQueryBatch != null && currentQueryBatch.size() != 0) {
 			emailService.sendBatch(currentQueryBatch);
 		} else {
 			System.out.println("нечего слать");

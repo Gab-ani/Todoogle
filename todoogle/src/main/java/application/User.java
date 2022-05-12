@@ -15,6 +15,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import queries.DateAndTimeResource;
+
 @Entity
 @Table(name="users")
 public class User implements UserDetails {
@@ -31,7 +33,7 @@ public class User implements UserDetails {
 	private boolean enabled;
 	
 	private String defaultTime;
-	private String defaultDateAndTime;
+	private String defaultDate;
 	
 	public User() {
 		super();
@@ -42,6 +44,7 @@ public class User implements UserDetails {
 		this.username = username;
 		this.password = password;
 		this.email = email;
+		this.enabled = false;
 	}
 	
 	@Override
@@ -91,17 +94,14 @@ public class User implements UserDetails {
 	public String getDefaultTime() {
 		return defaultTime;
 	}
-
-	public String getDefaultDateAndTime() {
-		return defaultDateAndTime;
+	
+	public String getDefaultDate() {
+		return defaultDate;
 	}
 
-	public void setDefaultTime(String defaultTime) {
-		this.defaultTime = defaultTime;
-	}
-
-	public void setDefaultDateAndTime(String defaultDateAndTime) {
-		this.defaultDateAndTime = defaultDateAndTime;
+	public void setDefaultDateAndTime(DateAndTimeResource dateTime) {
+		this.defaultTime = dateTime.getTime();
+		this.defaultDate = dateTime.getDate();
 	}
 
 	public void enable() {
